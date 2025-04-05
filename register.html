@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - GIG-CRED+</title>
+  <link rel="stylesheet" href="login.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <i class="fa-solid fa-user-plus icon-top"></i>
+    <h1>Create Account</h1>
+    <p class="tagline">Join GIG-CRED+ and unlock financial empowerment</p>
+  </div>
+
+  <!-- Registration Form -->
+  <div class="login-container">
+    <div class="login-card">
+      <form onsubmit="return validateForm()">
+        
+        <label for="name"><i class="fa-solid fa-user"></i> Full Name</label>
+        <input type="text" id="name" placeholder="Your full name" required />
+
+        <label for="age"><i class="fa-solid fa-cake-candles"></i> Age</label>
+        <input type="number" id="age" placeholder="Your age" required />
+
+        <label for="email"><i class="fa-solid fa-envelope"></i> Email</label>
+        <input type="email" id="email" placeholder="you@example.com" required />
+
+        <label for="password"><i class="fa-solid fa-lock"></i> Password</label>
+        <input type="password" id="password" placeholder="Create a password" required />
+
+        <label for="bank"><i class="fa-solid fa-building-columns"></i> Bank Account Detail</label>
+        <input type="text" id="bank" placeholder="Account number / IFSC / Bank name" required />
+
+        <label for="phone"><i class="fa-solid fa-phone"></i> Phone Number</label>
+        <input type="tel" id="phone" placeholder="10-digit mobile number" required />
+
+        <label for="address"><i class="fa-solid fa-location-dot"></i> Address</label>
+        <input type="text" id="address" placeholder="Your address" required />
+
+        <button type="submit" class="btn login-btn">
+          <i class="fa-solid fa-user-plus"></i> Register
+        </button>
+      </form>
+
+      <p class="bottom-text">
+        Already have an account? <a href="index.html">Login here</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- JS Validation -->
+  <script>
+    function validateForm() {
+      const age = parseInt(document.getElementById("age").value);
+      if (age < 18) {
+        alert("You must be at least 18 years old to register.");
+        return false;
+      }
+      return true;
+    }
+  </script>
+
+</body>
+</html>

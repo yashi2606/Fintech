@@ -9,12 +9,18 @@
 </head>
 <body>
 
+  <!-- Top Page Header -->
+  <div class="page-header">
+    <i class="fa-solid fa-wallet icon-top"></i>
+    <h1>GIG-CRED+</h1>
+    <p class="tagline">Empowering Gig Workers Financially</p>
+  </div>
+
+  <!-- Login Box -->
   <div class="login-container">
     <div class="login-card">
-      <i class="fa-solid fa-wallet fa-2x icon"></i>
-      <h2><span style="color: #2c3e50;">GIG-CRED+</span></h2>
 
-      <form action="login.html">
+      <form action="dashboard.html">
         <label for="email"><i class="fa-solid fa-envelope"></i> Email Address</label>
         <input type="email" id="email" placeholder="you@example.com" required />
 
@@ -26,14 +32,10 @@
         </button>
       </form>
 
-      <div class="divider">- OR -</div>
-
-      <button class="btn guest-btn" onclick="window.location.href='login.html'">
-        <i class="fa-solid fa-user-secret"></i> Continue as Guest
-      </button>
+      <!-- Removed: Guest login section -->
 
       <p class="bottom-text">
-        Don't have an account? <a href="#">Register here</a>
+        Don’t have an account? <a href="register.html">Register here</a>
       </p>
     </div>
   </div>
