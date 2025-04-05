@@ -153,6 +153,183 @@
       border-radius: 50%;
       border: 4px solid white;
     }
+
+    /* alag se add kia*/
+    .toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+
+  .label {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  /* Switch style */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    background-color: #ccc;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+
+  .slider::before {
+    content: "";
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+
+  input:checked + .slider {
+    background-color: #4CAF50;
+  }
+
+  input:checked + .slider::before {
+    transform: translateX(30px);
+  }
+  
+
+  /* body {
+	background: #000;
+} */
+.button-box {
+  width: 220px;
+  margin: 35px auto;
+  position: relative;
+  background: #eee;
+  border-radius: 30px;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: space-between;
+  padding: 4px;
+}
+
+#btn {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 104px;
+  height: 40px;
+  background: #e67e22;
+  border-radius: 25px;
+  transition: all 0.4s ease;
+  z-index: 0;
+}
+
+.toggle-btn {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+.toggle-btn.active {
+  color: white;
+}
+
+  /* //table style */
+  /* General table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Table header */
+thead {
+  background-color: #f4f6fb;
+}
+
+thead th {
+  padding: 16px;
+  text-align: left;
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Table body */
+tbody td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 15px;
+  color: #444;
+}
+
+/* Alternate row background */
+tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* Hover effect */
+tbody tr:hover {
+  background-color: #f0f5ff;
+}
+
+/* Input fields */
+input[type="number"] {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100px;
+  font-size: 14px;
+}
+
+/* Buttons */
+button {
+  padding: 8px 16px;
+  background-color: #114e0b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0958d9;
+}
+
   </style>
 </head>
 <body>
@@ -160,12 +337,13 @@
   <!-- Hero Section -->
   <div class="hero">
     <div class="hero-text">
-      <h1>Hi, I'm<br>Giuseppe Boinega!</h1>
-      <p>I'm a Front-end Developer.</p>
-      <button>Download Resume</button>
+      <h1>Hi, I'm  User2309!</h1>
+      <!-- <p>I'm a Front-end Developer.</p> -->
+       <br><br><br>
+      <button><i class="fa-solid fa-plus"></i> Connect to Wallet</button>
     </div>
     <div class="hero-image">
-      <img src="https://i.ibb.co/DYd9cLV/dev-photo.jpg" alt="Developer Photo">
+      <img src="https://t4.ftcdn.net/jpg/00/65/77/27/240_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg " alt="Developer Photo">
     </div>
   </div>
 
@@ -185,17 +363,12 @@
   <!-- Dashboard Content -->
   <div class="container">
 
-    <!-- Storage Warning -->
-    <div class="card">
-      <h4><i class="fa-solid fa-database"></i> Storage Usage</h4>
-      <progress value="0" max="100" style="width: 100%;"></progress>
-      <p style="font-size: 0.9rem; color: #777;">Demo mode allows limited tracking. Register to securely save and sync your financial data.</p>
-    </div>
+   
 
     <!-- Summary Cards (Updated) -->
     <div class="card-group">
       <div class="card">
-        <h4> Mist Days </h4>
+        <h4> Missed Days </h4>
         <p class="income">$0.00</p>
       </div>
       <div class="card">
@@ -213,31 +386,145 @@
     </div>
 
     <!-- Transaction Form -->
-    <div class="card form-card">
-      <h4>Add New Entry</h4>
-      <div class="form-row">
-        <div style="flex: 1;">
-          <label>Category</label>
-          <select>
-            <option>Income</option>
-            <option>Expense</option>
-            <option>Withdrawal</option>
-          </select>
-        </div>
-        <div style="flex: 1;">
-          <label>Amount (₹)</label>
-          <input type="number" placeholder="e.g. 1500" />
-        </div>
-        <div style="flex: 2;">
-          <label>Description</label>
-          <input type="text" placeholder="e.g. Uber ride payout, groceries..." />
-        </div>
-      </div>
+    <!-- <div class="card form-card">
       <button><i class="fa-solid fa-plus"></i> Add Transaction</button>
-    </div>
 
+
+    </div> -->
+    
+    <div class="form-box">
+      <div class="button-box">
+        <div id="btn"></div>
+        <button type="button" class="toggle-btn" onclick="leftClick()">Current</button>
+        <button type="button" class="toggle-btn" onclick="rightClick()">Elig</button>
+      </div>
+    </div>
+    
  
 
   </div>
+  <table id="currentTable">
+    <thead>
+      <tr>
+        <th>Installments</th>
+        <th>Due Payment Date</th>
+        <th>Loan Amount</th>
+        <th>Lender</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Sample rows below; you can dynamically generate these using data -->
+      <tr>
+        <td>1</td>
+        <td>Tue Feb 07 2023</td>
+        <td>$0.00</td>
+        <td>Amazon</td>
+        <td><button>Submit Payment</button></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Tue Feb 14 2023</td>
+        <td>$0.00</td>
+        <td>Reliance</td>
+        <td><button>Submit Payment</button></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Tue Feb 21 2023</td>
+        <td>$950.00</td>
+        <td>TATA Pvt Ltd</td>
+        <td><button>Submit Payment</button></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Tue Feb 28 2023</td>
+        <td>$950.00</td>
+        <td>Reliance</td>
+        <td><button>Submit Payment</button></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Tue Mar 07 2023</td>
+        <td>$950.00</td>
+        <td>Amazon</td>
+        <td><button>Submit Payment</button></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Tue Mar 14 2023</td>
+        <td>$950.00</td>
+        <td>Amazon</td>
+        <td><button>Submit Payment</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <table id="eligTable" style="display: none;">
+    
+  
+  <thead>
+    <tr>
+      <th>Loan Amount</th>
+      <th>Deadline</th>
+      <th>Pay</th>
+      <th>Pay Now</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$0.00</td>
+      <td>Tue Feb 07 2023</td>
+      <td>Amazon</td>
+      <td><button>Pay Now</button></td>
+    </tr>
+    <tr>
+      <td>$0.00</td>
+      <td>Tue Feb 14 2023</td>
+      <td>Due</td>
+      <td><button>Pay Now</button></td>
+    </tr>
+    <tr>
+      <td>$950.00</td>
+      <td>Tue Feb 21 2023</td>
+      <td>Due</td>
+      <td><button>Pay Now</button></td>
+    </tr>
+    <tr>
+      <td>$950.00</td>
+      <td>Tue Feb 28 2023</td>
+      <td>Due</td>
+      <td><button>Pay Now</button></td>
+    </tr>
+    <tr>
+      <td>$950.00</td>
+      <td>Tue Mar 07 2023</td>
+      <td>Due</td>
+      <td><button>Pay Now</button></td>
+    </tr>
+    <tr>
+      <td>$950.00</td>
+      <td>Tue Mar 14 2023</td>
+      <td>Paid</td>
+      <td><button>Paid</button></td>
+    </tr>
+  </tbody>
+  </table>
+  
+  <script src="index.js"></script>
+  <script>
+    function leftClick() {
+      document.getElementById("btn").style.left = "0";
+      document.getElementById("currentTable").style.display = "table";
+      document.getElementById("eligTable").style.display = "none";
+    }
+  
+    function rightClick() {
+      document.getElementById("btn").style.left = "110px";
+      document.getElementById("currentTable").style.display = "none";
+      document.getElementById("eligTable").style.display = "table";
+    }
+  </script>
 </body>
 </html>
