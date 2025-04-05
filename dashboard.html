@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GIG-CRED+ Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7fa;
+    }
+
+    .navbar {
+      background: #2c3e50;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    .badge {
+      background: orange;
+      color: black;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 8px;
+      margin-left: 0.3rem;
+    }
+
+    .container {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .card-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .card {
+      background: white;
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .card h4 {
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #2c3e50;
+    }
+
+    .card p {
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    .income { color: green; }
+    .expenses { color: red; }
+    .withdrawals { color: goldenrod; }
+
+    .form-card input, .form-card select {
+      padding: 0.6rem;
+      margin: 0.4rem 0;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 100%;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .form-card button {
+      margin-top: 1rem;
+      padding: 0.7rem 1.5rem;
+      background: #3498db;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .recent-transactions {
+      text-align: center;
+      color: #888;
+    }
+
+    .recent-transactions i {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <span><i class="fa-solid fa-wallet"></i> GIG-CRED+ Dashboard (Gig Worker Mode)</span>
+    <div>
+      <button style="background: transparent; border: none; color: white; margin-right: 1rem;">
+        <i class="fa-solid fa-user-tie"></i> Logged in as Guest <span class="badge">Demo Access</span>
+      </button>
+      <button style="background: transparent; border: 1px solid white; padding: 0.4rem 1rem; border-radius: 6px; color: white;">
+        <i class="fa-solid fa-right-to-bracket"></i> Login
+      </button>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Storage Warning -->
+    <div class="card">
+      <h4><i class="fa-solid fa-database"></i> Storage Usage</h4>
+      <progress value="0" max="100" style="width: 100%;"></progress>
+      <p style="font-size: 0.9rem; color: #777;">Demo mode allows limited tracking. Register to securely save and sync your financial data.</p>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="card-group">
+      <div class="card">
+        <h4>Total Balance</h4>
+        <p>$0.00</p>
+      </div>
+      <div class="card">
+        <h4>Monthly Income</h4>
+        <p class="income">$0.00</p>
+      </div>
+      <div class="card">
+        <h4>Monthly Expenses</h4>
+        <p class="expenses">$0.00</p>
+      </div>
+      <div class="card">
+        <h4>Withdrawals</h4>
+        <p class="withdrawals">$0.00</p>
+      </div>
+    </div>
+
+    <!-- Transaction Form -->
+    <div class="card form-card">
+      <h4>Add New Entry</h4>
+      <div class="form-row">
+        <div style="flex: 1;">
+          <label>Category</label>
+          <select>
+            <option>Income</option>
+            <option>Expense</option>
+            <option>Withdrawal</option>
+          </select>
+        </div>
+        <div style="flex: 1;">
+          <label>Amount (₹)</label>
+          <input type="number" placeholder="e.g. 1500" />
+        </div>
+        <div style="flex: 2;">
+          <label>Description</label>
+          <input type="text" placeholder="e.g. Uber ride payout, groceries..." />
+        </div>
+      </div>
+      <button><i class="fa-solid fa-plus"></i> Add Transaction</button>
+    </div>
+
+    <!-- Recent Transactions -->
+    <div class="card recent-transactions">
+      <h4>Recent Transactions</h4>
+      <i class="fa-solid fa-box-open"></i>
+      <p>No transactions added yet.</p>
+    </div>
+
+  </div>
+</body>
+</html>
