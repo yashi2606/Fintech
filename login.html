@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GIG-CRED+ Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-title">
+      <span>📊 GIG-CRED+</span>
+    </div>
+    <div class="navbar-buttons">
+      <button class="nav-btn outlined" onclick="window.location.href='index.html'">Logout</button>
+    </div>
+  </nav>
+
+  <!-- Combined Dashboard Card -->
+  <section class="card full-dashboard">
+    <h2>Form to Enter Details</h2>
+    <form>
+      <div class="input-row">
+        <input type="text" placeholder="Enter your name" required />
+        <input type="number" placeholder="Enter your income" required />
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+
+    <hr />
+
+    <h2>Show Eligibility Result</h2>
+    <div class="result">
+      <p>You are eligible for a loan of ₹50,000</p>
+    </div>
+
+    <hr />
+
+    <h2>Dashboard with Credit Score</h2>
+    <div class="credit-score">
+      <p>Your Credit Score: <strong>750</strong></p>
+    </div>
+  </section>
+
+</body>
+</html>
