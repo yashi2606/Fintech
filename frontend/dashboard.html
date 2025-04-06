@@ -334,75 +334,63 @@ button:hover {
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <div class="hero">
-    <div class="hero-text">
-      <h1>Hi, I'm  User2309!</h1>
-      <!-- <p>I'm a Front-end Developer.</p> -->
-       <br><br><br>
-      <button><i class="fa-solid fa-plus"></i> Connect to Wallet</button>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Include FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+
+<!-- Hero Section -->
+<div class="hero">
+  <div class="hero-text">
+    <h1>Hi, I'm User2309!</h1>
+    <br><br><br>
+    <button id="connectWalletBtn"><i class="fa-solid fa-plus"></i> Connect to Wallet</button>
+  </div>
+  <div class="hero-image">
+    <img src="https://t4.ftcdn.net/jpg/00/65/77/27/240_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg" alt="Developer Photo">
+  </div>
+</div>
+
+<!-- Dashboard Content -->
+<div class="container">
+
+  <!-- Summary Cards (Updated) -->
+  <div class="card-group">
+    <div class="card">
+      <h4> Missed Days </h4>
+      <p class="income" id="missedDays">$0.00</p>
     </div>
-    <div class="hero-image">
-      <img src="https://t4.ftcdn.net/jpg/00/65/77/27/240_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg " alt="Developer Photo">
+    <div class="card">
+      <h4>Working Days</h4>
+      <p id="workingDays">15 days</p>
+    </div>
+    <div class="card">
+      <h4>Rating</h4>
+      <p id="rating">⭐ 4.5 / 5</p>
+    </div>
+    <div class="card">
+      <h4>Avg. Income</h4>
+      <p class="income" id="avgIncome">$1000.00</p>
     </div>
   </div>
 
-  <!-- Navbar -->
-  <!-- <div class="navbar">
-    <span><i class="fa-solid fa-wallet"></i> GIG-CRED+ Dashboard (Gig Worker Mode)</span>
-    <div>
-      <button style="background: transparent; border: none; color: white; margin-right: 1rem;">
-        <i class="fa-solid fa-user-tie"></i> Logged in as Guest <span class="badge">Demo Access</span>
-      </button>
-      <button onclick="document.getElementById('otpModal').style.display='block'" style="background: transparent; border: 1px solid white; padding: 0.4rem 1rem; border-radius: 6px; color: white;">
-        <i class="fa-solid fa-right-to-bracket"></i> Login via OTP
-      </button>
+  <!-- Toggle Tables -->
+  <div class="form-box">
+    <div class="button-box">
+      <div id="btn"></div>
+      <button type="button" class="toggle-btn" onclick="leftClick()">Current</button>
+      <button type="button" class="toggle-btn" onclick="rightClick()">Elig</button>
     </div>
-  </div> -->
-
-  <!-- Dashboard Content -->
-  <div class="container">
-
-   
-
-    <!-- Summary Cards (Updated) -->
-    <div class="card-group">
-      <div class="card">
-        <h4> Missed Days </h4>
-        <p class="income">$0.00</p>
-      </div>
-      <div class="card">
-        <h4>Working Days</h4>
-        <p>15 days</p>
-      </div>
-      <div class="card">
-        <h4>Rating</h4>
-        <p>⭐ 4.5 / 5</p>
-      </div>
-      <div class="card">
-        <h4>Avg. Income</h4>
-        <p class="income">$1000.00</p>
-      </div>
-    </div>
-
-    <!-- Transaction Form -->
-    <!-- <div class="card form-card">
-      <button><i class="fa-solid fa-plus"></i> Add Transaction</button>
-
-
-    </div> -->
-    
-    <div class="form-box">
-      <div class="button-box">
-        <div id="btn"></div>
-        <button type="button" class="toggle-btn" onclick="leftClick()">Current</button>
-        <button type="button" class="toggle-btn" onclick="rightClick()">Elig</button>
-      </div>
-    </div>
-    
- 
-
   </div>
+
+  <!-- Current Table (Loan Data) -->
   <table id="currentTable">
     <thead>
       <tr>
@@ -511,21 +499,148 @@ button:hover {
     </tr>
   </tbody>
   </table>
-  
-  <script src="index.js"></script>
-  <script>
-    function leftClick() {
-      document.getElementById("btn").style.left = "0";
-      document.getElementById("currentTable").style.display = "table";
-      document.getElementById("eligTable").style.display = "none";
+
+  <!-- Eligibility Table (Loan Data) -->
+  <table id="eligTable" style="display: none;">
+    <thead>
+      <tr>
+        <th>Loan Amount</th>
+        <th>Deadline</th>
+        <th>Pay</th>
+        <th>Pay Now</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>$950.00</td>
+        <td>Tue Feb 21 2023</td>
+        <td>Due</td>
+        <td><button>Pay Now</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<script>
+// Dummy user data (in a real application, this would be stored server-side in a database)
+const users = {
+    "User2309": {
+        platformConnections: {
+            uber: { connected: false, accountId: null },
+            swiggy: { connected: false, accountId: null },
+            rapido: { connected: false, accountId: null },
+            fiverr: { connected: false, accountId: null },
+        },
+        platformData: {
+            uber: {},
+            swiggy: {},
+            rapido: {},
+            fiverr: {},
+        },
+    },
+};
+
+// Function to generate dummy platform data
+function generateDummyPlatformData(platform) {
+    const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+    const randomFloat = (min, max, decimals) => parseFloat((Math.random() * (max - min) + min).toFixed(decimals));
+    const randomChoice = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+    const now = new Date().toISOString();
+
+    if (platform === "uber" || platform === "swiggy" || platform === "rapido") {
+        const workingDays = randomInt(15, 25);
+        const missedDays = 30 - workingDays;
+        const averageIncome = randomFloat(800, 1500, 2);
+        const rating = randomFloat(4.0, 5.0, 1);
+        const region = randomChoice(["Greater Noida", "Delhi", "Gurgaon", "Faridabad"]);
+        return {
+            workingDays: workingDays,
+            missedDays: missedDays,
+            averageIncome: averageIncome,
+            rating: rating,
+            region: region,
+            lastUpdated: now,
+        };
+    } else if (platform === "fiverr") {
+        const workingDays = randomInt(20, 30);
+        const missedDays = 30 - workingDays;
+        const averageIncome = randomFloat(500, 2000, 2);
+        const rating = randomFloat(4.5, 5.0, 1);
+        const skills = randomChoice([["Web Development", "React"], ["Graphic Design", "Logo"], ["Content Writing"], ["Data Entry"]]);
+        return {
+            workingDays: workingDays,
+            missedDays: missedDays,
+            averageIncome: averageIncome,
+            rating: rating,
+            skills: skills,
+            lastUpdated: now,
+        };
     }
-  
-    function rightClick() {
-      document.getElementById("btn").style.left = "110px";
-      document.getElementById("currentTable").style.display = "none";
-      document.getElementById("eligTable").style.display = "table";
+    return {};
+}
+
+// Function to connect the wallet and update platform data
+async function connectWallet(platform) {
+    const userId = "User2309";
+    const accountId = prompt(`Enter your dummy ${platform} account ID:`);
+
+    if (!accountId) {
+        alert("Account ID is required.");
+        return;
     }
-  </script>
-  <script src="index.js"></script>
+
+    if (users[userId] && users[userId].platformConnections[platform]) {
+        users[userId].platformConnections[platform].connected = true;
+        users[userId].platformConnections[platform].accountId = accountId;
+
+        // Fetch dummy data immediately after "connection"
+        const dummyData = generateDummyPlatformData(platform);
+        users[userId].platformData[platform] = dummyData;
+
+        alert(`Successfully connected to ${platform} with account ID: ${accountId}`);
+        updateDashboard(platform); // Update the dashboard with the new data
+    } else {
+        alert("Invalid platform.");
+    }
+}
+
+// Function to update the dashboard with the fetched platform data
+function updateDashboard(platform) {
+    const userId = "User2309";
+    const platformData = users[userId].platformData[platform];
+
+    if (platformData) {
+        document.getElementById('missedDays').textContent = platformData.missedDays !== undefined ? `${platformData.missedDays} days` : '$0.00';
+        document.getElementById('workingDays').textContent = platformData.workingDays !== undefined ? `${platformData.workingDays} days` : '0 days';
+        document.getElementById('rating').textContent = platformData.rating !== undefined ? `⭐ ${platformData.rating} / 5` : '⭐ - / 5';
+        document.getElementById('avgIncome').textContent = platformData.averageIncome !== undefined ? `$${platformData.averageIncome.toFixed(2)}` : '$0.00';
+    } else {
+        console.warn(`No data available for ${platform}.`);
+    }
+}
+
+// Handle Connect Wallet button
+document.getElementById('connectWalletBtn').addEventListener('click', () => {
+    const platform = prompt("Enter the platform to connect (uber, swiggy, rapido, fiverr):");
+    if (platform) {
+        connectWallet(platform);
+    }
+});
+
+// Left and Right click functionality for toggling between tables
+function leftClick() {
+    document.getElementById("btn").style.left = "0";
+    document.getElementById("currentTable").style.display = "table";
+    document.getElementById("eligTable").style.display = "none";
+}
+
+function rightClick() {
+    document.getElementById("btn").style.left = "110px";
+    document.getElementById("currentTable").style.display = "none";
+    document.getElementById("eligTable").style.display = "table";
+}
+</script>
 </body>
 </html>
