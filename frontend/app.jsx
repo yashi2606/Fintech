@@ -26,7 +26,7 @@ const App = () => {
   };
 
   const handleSubmit = (id) => {
-    alert(Payment submitted for Installment ${id});
+    alert('Payment submitted for Installment ${id}');
   };
 
   return (
