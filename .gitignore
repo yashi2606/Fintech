@@ -1,0 +1,4 @@
+# Ignore Java SDKs and related directories
+.jdks/
+.gradle/
+.vscode/
