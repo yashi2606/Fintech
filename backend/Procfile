@@ -1,1 +1,1 @@
-python models_server.py
+web: python models_server.py
