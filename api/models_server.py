@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import joblib
+import pandas as pd
 
 app = Flask(__name__)
 CORS(app, resources={
@@ -47,7 +48,8 @@ def predict():
             float(previous_loan_performance)
         ]
 
-        prediction = model.predict([input_data])
+        input_df = pd.DataFrame([input_data], columns=model.feature_names_in_)
+        prediction = model.predict(input_df)
         return jsonify({'prediction': prediction.tolist()[0]})
 
     except Exception as e:
