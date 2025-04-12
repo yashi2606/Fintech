@@ -1,10 +1,10 @@
 # Gig Cred
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/gig-cred.git
+git clone https://github.com/yashi2606/Fintech.git
 
 # 2. Go into the project folder
-cd gig-cred
+cd Fintech
 
 # 3. Navigate to the API directory
 cd api
