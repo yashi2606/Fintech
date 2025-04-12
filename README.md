@@ -2,7 +2,7 @@
 ```bash
 Since our platform uses an AI model at the backend to generate outputs, we are currently unable to deploy it online due to limited free credits.  
 
-### Here's how you can run it locally:
+## Here's how you can run it locally:
 # 1. Clone the repository
 git clone https://github.com/yashi2606/Fintech.git
 
